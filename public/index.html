@@ -229,7 +229,7 @@
       async function deleteUser(todoId) {
         try {
           const response = await fetch(
-            `https://leavemanagementdbs.vercel.app/api/data/${todoId}`,
+            `https://leavemanagerdbsy.vercel.app/api/data/${todoId}`,
             { method: "DELETE" }
           );
           const result = await response.json();
@@ -244,7 +244,7 @@
 
       // Fetch and display data
       async function fetchData() {
-        fetch("https://leavemanagementdbs.vercel.app/api/data")
+        fetch("https://leavemanagerdbsy.vercel.app/api/data")
           .then((response) => response.json())
           .then((data) => {
             datajson = data;
@@ -335,7 +335,7 @@
 
       var downloadbtn = document.getElementById("download");
       downloadbtn.addEventListener("click", () => {
-        fetch("https://leavemanagementdbs.vercel.app/api/data")
+        fetch("https://leavemanagerdbsy.vercel.app/api/data")
           .then((response) => response.json())
           .then((data) => {
             const name = document.getElementById("findbyname").value;
@@ -350,7 +350,7 @@
       });
 
       async function findbyname() {
-        fetch("https://leavemanagementdbs.vercel.app/api/data")
+        fetch("https://leavemanagerdbsy.vercel.app/api/data")
           .then((response) => response.json())
           .then((data) => {
             const tbody = document.getElementById("tbody");
