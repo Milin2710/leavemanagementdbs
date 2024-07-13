@@ -1,0 +1,399 @@
+<!-- after.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DBS</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Submit</h1>
+
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <form action="/submit" method="post" style="width: 90vw; margin: auto">
+      <div class="form-group">
+        <label for="name">NAME</label>
+        <input
+          class="form-control"
+          type="text"
+          name="name"
+          id="name"
+          required
+          placeholder="Enter name"
+        />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="date1">From</label>
+          <input
+            type="text"
+            name="date1"
+            id="date1"
+            class="form-control"
+            placeholder="Enter date"
+            required
+          />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="date2">Till</label>
+          <input
+            type="text"
+            name="date2"
+            id="date2"
+            class="form-control"
+            placeholder="Enter date"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="cl">Casual Leave</label>
+        <input
+          class="form-control"
+          type="text"
+          name="cl"
+          id="cl"
+          required
+          placeholder="CL"
+          style="width: 100px"
+        />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="pl">PL</label>
+          <input
+            class="form-control form-control-sm"
+            type="text"
+            name="pl"
+            id="pl"
+            placeholder="PL"
+            required
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="el">Earned Leave</label>
+            <input
+            class="form-control form-control-sm"
+            type="text"
+            name="el"
+            id="el"
+            placeholder="EL"
+            required
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="dl">Duty Leave</label>
+            <input
+            class="form-control form-control-sm"
+            type="text"
+            name="dl"
+            id="dl"
+            placeholder="DL"
+            required
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="ml">ML</label>
+            <input
+            class="form-control form-control-sm"
+            type="text"
+            name="ml"
+            id="ml"
+            placeholder="ML"
+            required
+            />
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="ccl">CCL</label>
+            <input
+            class="form-control form-control-sm"
+            type="text"
+            name="ccl"
+            id="ccl"
+            placeholder="CCL"
+            required
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="ml2">Maternal Leave</label>
+            <input
+            class="form-control form-control-sm"
+            type="text"
+            name="ml2"
+            id="ml2"
+            placeholder="ML"
+            required
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="pl2">Paternal Leave</label>
+            <input
+            class="form-control form-control-sm"
+            type="text"
+            name="pl2"
+            id="pl2"
+            placeholder="PL"
+            required
+            />
+          </div>
+          <div class="form-group col-md-3">
+            <label for="ol">Other Leave</label>
+            <input
+            class="form-control form-control-sm"
+            type="text"
+            name="ol"
+            id="ol"
+            placeholder="OL"
+            required
+            />
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Sanctioned by</label>
+        <select class="form-control" id="sanction" name="sanction" required>
+          <option value="" disabled selected>SELECT</option>
+          <option value="Principal">Sanction Authority Principal</option>
+          <option value="Secretary">Sanction Authority Secretary</option>
+        </select>
+      </div>
+
+      <input type="submit" class="btn btn-primary" value="Submit" />
+    </form>
+
+    <div class="find">
+      <input
+        type="text"
+        id="findbyname"
+        list="employeeNames"
+        placeholder="Enter Employee Name"
+      />
+      <datalist id="employeeNames"> </datalist>
+    </div>
+
+    <button class="download" id="download">DOWNLOAD</button>
+
+    <div class="row" id="data">
+      <table id="table" class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Date1</th>
+            <th scope="col">Date2</th>
+            <th scope="col">CL</th>
+            <th scope="col">PL</th>
+            <th scope="col">EL</th>
+            <th scope="col">DL</th>
+            <th scope="col">ML</th>
+            <th scope="col">CCL</th>
+            <th scope="col">ML</th>
+            <th scope="col">PL</th>
+            <th scope="col">OL</th>
+            <th scope="col">Sanction</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+
+    <script>
+      const inputField = document.getElementById("findbyname");
+
+      inputField.addEventListener("input", findbyname);
+
+      async function deleteUser(todoId) {
+        try {
+          const response = await fetch(
+            `https://leavemanagementdbs.vercel.app/api/data/${todoId}`,
+            { method: "DELETE" }
+          );
+          const result = await response.json();
+          console.log(result);
+          fetchData(); // Refresh data after deletion
+        } catch (error) {
+          console.error("Error deleting todo:", error);
+        }
+      }
+
+      var datajson;
+
+      // Fetch and display data
+      async function fetchData() {
+        fetch("https://leavemanagementdbs.vercel.app/api/data")
+          .then((response) => response.json())
+          .then((data) => {
+            datajson = data;
+            const tbody = document.getElementById("tbody");
+            tbody.innerHTML = "";
+            const datalist = document.getElementById("employeeNames");
+
+            data.forEach((todoData) => {
+              const option = document.createElement("option");
+              option.setAttribute("value", `${todoData.name}`);
+              datalist.appendChild(option);
+
+              const tr = document.createElement("tr");
+              tbody.appendChild(tr);
+
+              const td1 = document.createElement("td");
+              td1.innerHTML = `${todoData.name}`;
+              tr.appendChild(td1);
+
+              const td2 = document.createElement("td");
+              td2.innerHTML = `${todoData.date1}`;
+              tr.appendChild(td2);
+
+              const td3 = document.createElement("td");
+              td3.innerHTML = `${todoData.date2}`;
+              tr.appendChild(td3);
+
+              const td4 = document.createElement("td");
+              td4.innerHTML = `${todoData.cl}`;
+              tr.appendChild(td4);
+
+              const td5 = document.createElement("td");
+              td5.innerHTML = `${todoData.pl}`;
+              tr.appendChild(td5);
+
+              const td6 = document.createElement("td");
+              td6.innerHTML = `${todoData.el}`;
+              tr.appendChild(td6);
+
+              const td7 = document.createElement("td");
+              td7.innerHTML = `${todoData.dl}`;
+              tr.appendChild(td7);
+
+              const td8 = document.createElement("td");
+              td8.innerHTML = `${todoData.ml}`;
+              tr.appendChild(td8);
+
+              const td9 = document.createElement("td");
+              td9.innerHTML = `${todoData.ccl}`;
+              tr.appendChild(td9);
+
+              const td10 = document.createElement("td");
+              td10.innerHTML = `${todoData.ml2}`;
+              tr.appendChild(td10);
+
+              const td11 = document.createElement("td");
+              td11.innerHTML = `${todoData.pl2}`;
+              tr.appendChild(td11);
+
+              const td12 = document.createElement("td");
+              td12.innerHTML = `${todoData.ol}`;
+              tr.appendChild(td12);
+
+              const td13 = document.createElement("td");
+              td13.innerHTML = `${todoData.sanction}`;
+              tr.appendChild(td13);
+
+              const btn = document.createElement("button");
+              btn.setAttribute("class", "btn btn-danger");
+              btn.innerHTML = "Delete";
+              const td15 = document.createElement("td");
+              tr.appendChild(td15);
+              td15.appendChild(btn);
+              btn.onclick = function () {
+                deleteUser(`${todoData._id}`);
+              };
+              btn.setAttribute("type", "button");
+
+              // <button type="button" onclick="deleteUser()">Delete User</button>
+            });
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+          });
+
+        //   container.innerHTML = JSON.stringify(data, null, 2);
+      }
+
+      var downloadbtn = document.getElementById("download");
+      downloadbtn.addEventListener("click", () => {
+        fetch("https://leavemanagementdbs.vercel.app/api/data")
+          .then((response) => response.json())
+          .then((data) => {
+            const name = document.getElementById("findbyname").value;
+            datajson = [];
+            data.forEach((objd) => {
+              if (objd.name.includes(name)) {
+                datajson.push(objd);
+              }
+            });
+          });
+        downloadexcel(datajson);
+      });
+
+      async function findbyname() {
+        fetch("https://leavemanagementdbs.vercel.app/api/data")
+          .then((response) => response.json())
+          .then((data) => {
+            const tbody = document.getElementById("tbody");
+            tbody.innerHTML = "";
+            const name = document.getElementById("findbyname").value;
+            datajson = [];
+            data.forEach((objd) => {
+              if (objd.name.includes(name)) {
+                datajson.push(objd);
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                <td>${objd.name}</td>
+                <td>${objd.date1}</td>
+                <td>${objd.date2}</td>
+                <td>${objd.cl}</td>
+                <td>${objd.pl}</td>
+                <td>${objd.el}</td>
+                <td>${objd.dl}</td>
+                <td>${objd.ml}</td>
+                <td>${objd.ccl}</td>
+                <td>${objd.ml2}</td>
+                <td>${objd.pl2}</td>
+                <td>${objd.ol}</td>
+                <td>${objd.sanction}</td>
+                <td><button class="btn btn-danger" onClick="() => {deleteUser(${objd._id})}">Delete</button></td>
+              `;
+                tbody.appendChild(tr);
+              }
+            });
+          });
+      }
+      function downloadexcel(data) {
+        const wb = XLSX.utils.book_new();
+        const ws = XLSX.utils.json_to_sheet(data);
+
+        // Append the worksheet to the workbook
+        XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+
+        // Generate a download
+        XLSX.writeFile(wb, "data.xlsx");
+      }
+
+      fetchData(); // Initial data fetch
+    </script>
+  </body>
+</html>
